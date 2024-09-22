@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เปรียบเทียบ OOP: Java, C++, Python</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #e2e2e2;
+        }
+        pre {
+            background-color: #e2e2e2;
+            padding: 10px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+
+<h1>การเปรียบเทียบ OOP ใน Java, C++ และ Python</h1>
+
+<h2>1. ความเหมือน</h2>
+<ul>
+    <li>แนวคิดหลัก: ทั้งสามภาษาสนับสนุนแนวคิด OOP เช่น Encapsulation, Inheritance, และ Polymorphism</li>
+    <li>การสร้างคลาสและวัตถุ: สามารถสร้างคลาสและวัตถุได้ในทุกภาษา</li>
+    <li>การใช้เมธอด: ทุกภาษามีการกำหนดและเรียกใช้เมธอดในคลาส</li>
+</ul>
+
+<h2>2. ความแตกต่าง</h2>
+<table>
+    <thead>
+        <tr>
+            <th>คุณสมบัติ</th>
+            <th>Java</th>
+            <th>C++</th>
+            <th>Python</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>การจัดการหน่วยความจำ</td>
+            <td>ใช้ Garbage Collection</td>
+            <td>ผู้ใช้ต้องจัดการหน่วยความจำเอง</td>
+            <td>ใช้ Garbage Collection</td>
+        </tr>
+        <tr>
+            <td>การสืบทอด</td>
+            <td>รองรับ Multiple Inheritance ผ่าน Interface</td>
+            <td>รองรับ Multiple Inheritance</td>
+            <td>รองรับ Multiple Inheritance</td>
+        </tr>
+        <tr>
+            <td>ประเภทข้อมูล</td>
+            <td>Static Typing</td>
+            <td>Static Typing</td>
+            <td>Dynamic Typing</td>
+        </tr>
+        <tr>
+            <td>การประกาศคลาส</td>
+            <td><code>class ClassName { ... }</code></td>
+            <td><code>class ClassName { ... };</code></td>
+            <td><code>class ClassName: ...</code></td>
+        </tr>
+        <tr>
+            <td>การจัดการข้อผิดพลาด</td>
+            <td>ใช้ Exception Handling (try-catch)</td>
+            <td>ใช้ Exception Handling (try-catch)</td>
+            <td>ใช้ Exception Handling (try-except)</td>
+        </tr>
+        <tr>
+            <td>ฟังก์ชันเป็นแบบแรก</td>
+            <td>ไม่สนับสนุนฟังก์ชันเป็นแบบแรก</td>
+            <td>สนับสนุน</td>
+            <td>สนับสนุน</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>3. ตัวอย่างโค้ด</h2>
+
+<h3>Java</h3>
+<pre>
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    void sound() {
+        System.out.println("Bark");
+    }
+}
+</pre>
+
+<h3>C++</h3>
+<pre>
+class Animal {
+public:
+    virtual void sound() {
+        std::cout << "Animal makes a sound" << std::endl;
+    }
+};
+
+class Dog : public Animal {
+public:
+    void sound() override {
+        std::cout << "Bark" << std::endl;
+    }
+};
+</pre>
+
+<h3>Python</h3>
+<pre>
+class Animal:
+    def sound(self):
+        print("Animal makes a sound")
+
+class Dog(Animal):
+    def sound(self):
+        print("Bark")
+</pre>
+
+<h2>4. สรุป</h2>
+<ul>
+    <li>Java และ C++ มีความเข้มงวดในการจัดการประเภทข้อมูลและการจัดการหน่วยความจำ</li>
+    <li>Python มีความยืดหยุ่นมากกว่าในเรื่องประเภทข้อมูล แต่ยังคงสนับสนุน OOP</li>
+    <li>การเลือกภาษาขึ้นอยู่กับความต้องการและบริบทของโปรเจค</li>
+</ul>
+
+</body>
+</html>
