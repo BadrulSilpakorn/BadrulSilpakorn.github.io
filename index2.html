@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP Concepts</title>
+</head>
+<body>
+
+    <h1>I. เขียนโปรแกรมในภาษา Java, C++, Python เปรียบเทียบผลรัน</h1>
+
+    <h2>Java:</h2>
+    <pre><code>
+class Animal {
+    public Animal() {
+        System.out.println("create animal");
+    }
+    
+    public void sound() {
+        System.out.println("animal makes a sound");
+    }
+
+    protected void finalize() {
+        System.out.println("delete animal");
+    }
+}
+
+class Dog extends Animal {
+    public Dog() {
+        System.out.println("dog");
+    }
+    
+    @Override
+    public void sound() {
+        System.out.println("dog barks");
+    }
+
+    protected void finalize() {
+        System.out.println("delete dog");
+    }
+}
+
+class Cat extends Animal {
+    public Cat() {
+        System.out.println("cat");
+    }
+
+    @Override
+    public void sound() {
+        System.out.println("cat meows");
+    }
+
+    protected void finalize() {
+        System.out.println("delete cat");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal a = new Animal();
+        Dog d = new Dog();
+        Cat c = new Cat();
+
+        a.sound();
+        d.sound();
+        c.sound();
+    }
+}
+    </code></pre>
+
+    <h2>C++:</h2>
+    <pre><code>
+#include &lt;iostream&gt;
+
+class Animal {
+public:
+    Animal() {
+        std::cout &lt;&lt; "create animal" &lt;&lt; std::endl;
+    }
+    virtual void sound() {
+        std::cout &lt;&lt; "animal makes a sound" &lt;&lt; std::endl;
+    }
+    virtual ~Animal() {
+        std::cout &lt;&lt; "delete animal" &lt;&lt; std::endl;
+    }
+};
+
+class Dog : public Animal {
+public:
+    Dog() {
+        std::cout &lt;&lt; "dog" &lt;&lt; std::endl;
+    }
+    void sound() override {
+        std::cout &lt;&lt; "dog barks" &lt;&lt; std::endl;
+    }
+    ~Dog() {
+        std::cout &lt;&lt; "delete dog" &lt;&lt; std::endl;
+    }
+};
+
+class Cat : public Animal {
+public:
+    Cat() {
+        std::cout &lt;&lt; "cat" &lt;&lt; std::endl;
+    }
+    void sound() override {
+        std::cout &lt;&lt; "cat meows" &lt;&lt; std::endl;
+    }
+    ~Cat() {
+        std::cout &lt;&lt; "delete cat" &lt;&lt; std::endl;
+    }
+};
+
+int main() {
+    Animal* a = new Animal();
+    Dog* d = new Dog();
+    Cat* c = new Cat();
+
+    a-&gt;sound();
+    d-&gt;sound();
+    c-&gt;sound();
+
+    delete a;
+    delete d;
+    delete c;
+}
+    </code></pre>
+
+    <h2>Python:</h2>
+    <pre><code>
+class Animal:
+    def __init__(self):
+        print("create animal")
+
+    def sound(self):
+        print("animal makes a sound")
+
+    def __del__(self):
+        print("delete animal")
+
+class Dog(Animal):
+    def __init__(self):
+        print("dog")
+
+    def sound(self):
+        print("dog barks")
+
+    def __del__(self):
+        print("delete dog")
+
+class Cat(Animal):
+    def __init__(self):
+        print("cat")
+
+    def sound(self):
+        print("cat meows")
+
+    def __del__(self):
+        print("delete cat")
+
+a = Animal()
+d = Dog()
+c = Cat()
+
+a.sound()
+d.sound()
+c.sound()
+    </code></pre>
+
+    <h1>II. เปรียบเทียบกับ concept ของ OOP</h1>
+    <ul>
+        <li><strong>Class:</strong> เป็น blueprint ของ object ในโปรแกรม ตัวอย่างจากโค้ด <code>Animal</code>, <code>Dog</code>, และ <code>Cat</code> คือ class ซึ่งแต่ละ class ประกอบไปด้วย constructor, method, และ destructor</li>
+        <li><strong>Object/Instance:</strong> object คือ instance ของ class ตัวอย่างเช่น <code>a</code>, <code>d</code>, <code>c</code> ที่เป็น instance ของ class <code>Animal</code>, <code>Dog</code>, และ <code>Cat</code> ตามลำดับ</li>
+        <li><strong>Subclass/Derived class:</strong> เป็น class ที่สืบทอดคุณสมบัติจาก class อื่น ตัวอย่างคือ <code>Dog</code> และ <code>Cat</code> ที่เป็น subclass ของ <code>Animal</code></li>
+        <li><strong>Message:</strong> การเรียกใช้ method บน object เช่น <code>a.sound()</code>, <code>d.sound()</code>, <code>c.sound()</code> ถือเป็นการส่ง message ไปยัง object เหล่านั้น</li>
+        <li><strong>Inheritance:</strong> <code>Dog</code> และ <code>Cat</code> ได้รับการสืบทอด method และ attribute จาก class <code>Animal</code></li>
+        <li><strong>Polymorphism:</strong> ความสามารถของ method <code>sound</code> ในการทำงานได้หลายรูปแบบ ในโค้ดนี้ method <code>sound</code> ใน <code>Dog</code> และ <code>Cat</code> ถูก override ให้ทำงานต่างกัน</li>
+    </ul>
+
+    <h1>III. abstract class คืออะไร</h1>
+    <p><strong>Abstract class</strong> เป็น class ที่ไม่สามารถสร้าง object ได้โดยตรง มักมี method ที่ยังไม่ได้ implement เพื่อให้ subclass มา implement เอง ในตัวอย่างนี้ไม่มี class ใดเป็น abstract class เนื่องจากทุก class สามารถสร้าง object ได้</p>
+
+</body>
+</html>
